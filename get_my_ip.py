@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def arguments():
     """Create and return arguments"""
-    parser = argparse.ArgumentParser(description='Download files from Volafile')
+    parser = argparse.ArgumentParser(description='Get your IP address from a semi-random website')
     parser.add_argument('-l', '--loglevel', help='Set loglevel (debug, info, warn, error, critical)', required=False, default='info')
     parser.add_argument('-t', '--test-all', help='Test all sites', required=False, dest='test_all', action='store_true')
     return parser.parse_args()
@@ -43,7 +43,7 @@ def load_file():
     return json_blob
 
 def valid_ip(address):
-    # Private addresses
+    # Private addresses and other things to ignore
     if address.startswith('192.168') or \
        address.startswith('10.') or \
        address.startswith('172.') or \
